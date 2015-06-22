@@ -1,4 +1,5 @@
 require "easy_imaging/version"
+require "easy_imaging/engine"
 require "mini_magick"
 
 module EasyImaging
