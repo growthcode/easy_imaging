@@ -24,7 +24,10 @@ Or install it yourself as:
     $ gem install easy_imaging
 
 
-## 2 ways to use this Gem
+## You can perform image manipulation in 2 ways with this gem
+
+1) Image manipulation through the EasyImaging Module.
+2) Image manipulation through instance methods.
 
 Any of the following examples will be for a 'User' model with a Paperclip image attribute name of 'avatar'.
 
@@ -49,7 +52,7 @@ Example Model I'll be referencing:
 ```
 
 
-#### 1) Use it through the EasyImaging Module.
+#### 1) Image manipulation through the EasyImaging Module.
 
 
 Any model instance with a Paperclip image attached can now run any of [ImageMagick's methods](http://www.imagemagick.org/script/command-line-options.php).
@@ -98,7 +101,7 @@ EasyImaging.#{method}_image(@user.avatar, *args)
 
 ```
 
-#### 2) Perform the image manipulation through instance methods.
+#### 2) Image manipulation through instance methods.
 
 You can actually apply the methods onto the Paperclip image's model and use the methods as instance methods.
 
