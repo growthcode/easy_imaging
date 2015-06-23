@@ -56,20 +56,21 @@ Any model instance with a Paperclip image attached can now run any of [ImageMagi
 
 You have the option of applying manipulation to all the instance's style keys, or to all style keys but the original. To apply to all including the original, add a "bang" to the end of the method.
 
+Using the ImageMagick methods are easy, the naming conventin follows a simple pattern.
 
-###### Apply to all styles but the original:
-
+```ruby
 EasyImaging.#{method}_image(*args)
+```
 
-Example, if you want to rotate the image:
+##### Apply to all styles but the original:
 
 ```ruby
 
   # Reflect the scanlines in the vertical direction. The image will be mirrored upside-down.
-  EasyImaging.flip_image
+  EasyImaging.flip_image(@user.avatar)
 
   # Reflect the scanlines in the horizontal direction, just like the image in a vertical mirror.
-  EasyImaging.flop_image
+  EasyImaging.flop_image(@user.avatar)
 
   # Rotate the picture 90 degrees counter clockwise.
   EasyImaging.rotate_image(@user.avatar, "-90")
@@ -79,15 +80,15 @@ Example, if you want to rotate the image:
 
 ```
 
-###### Apply to all styles, including original:
+##### Apply to all styles, including original:
 
 ```ruby
 
   # Reflect the scanlines in the vertical direction. The image will be mirrored upside-down.
-  EasyImaging.flip_image!
+  EasyImaging.flip_image!(@user.avatar)
 
   # Reflect the scanlines in the horizontal direction, just like the image in a vertical mirror.
-  EasyImaging.flop_image!
+  EasyImaging.flop_image!(@user.avatar)
 
   # Rotate the picture 90 degrees counter clockwise.
   EasyImaging.rotate_image!(@user.avatar, "-90")
@@ -101,7 +102,7 @@ Example, if you want to rotate the image:
 
 You can actually apply the methods onto the Paperclip image's model and use the methods as instance methods.
 
-You'll need to add 2 things to your model which has the image instance in order to do this. 1) 'include EasyImaging' inside your model. 2) define a paperclip_image method which returns the attribute holding your image.  
+You'll need to add 2 things to your model which has the image instance in order to do this. 1) 'include EasyImaging' inside your model. 2) define a paperclip_image method which returns the attribute holding your image.
 
 For an example, I'll add the instance methods to a 'User' Model which calls it's Paperclip image attribute 'avatar'
 
@@ -125,16 +126,16 @@ Once you are ready to use the instance methods:
 ```ruby
 
   # Reflect the scanlines in the vertical direction. The image will be mirrored upside-down.
-  @user.avatar_image!
+  @user.flip_image
 
   # Reflect the scanlines in the horizontal direction, just like the image in a vertical mirror.
-  @user.avatar_image!
+  @user.flop_image
 
   # Rotate the picture 90 degrees counter clockwise.
-  @user.avatarte_image!(@user.avatar, "-90")
+  @user.rotate_image("-90")
 
   # Crop the image at these xy points in the picture.
-  @user.avatar_image!(@user.avatar, "120x120+10+5")
+  @user.crop_image("120x120+10+5")
 
 ```
 
