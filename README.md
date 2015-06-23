@@ -56,12 +56,13 @@ Any model instance with a Paperclip image attached can now run any of [ImageMagi
 
 You have the option of applying manipulation to all the instance's style keys, or to all style keys but the original. To apply to all including the original, add a "bang" to the end of the method.
 
+Using the ImageMagick methods are easy, the naming conventin follows a simple pattern.
 
-###### Apply to all styles but the original:
-
+```ruby
 EasyImaging.#{method}_image(*args)
+```
 
-Example, if you want to rotate the image:
+##### Apply to all styles but the original:
 
 ```ruby
 
@@ -79,7 +80,7 @@ Example, if you want to rotate the image:
 
 ```
 
-###### Apply to all styles, including original:
+##### Apply to all styles, including original:
 
 ```ruby
 
