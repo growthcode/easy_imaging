@@ -59,7 +59,7 @@ You have the option of applying manipulation to all the instance's style keys, o
 Using the ImageMagick methods are easy, the naming conventin follows a simple pattern.
 
 ```ruby
-EasyImaging.#{method}_image(*args)
+EasyImaging.#{method}_image(@user.avatar, *args)
 ```
 
 ##### Apply to all styles but the original:
