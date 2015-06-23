@@ -1,6 +1,6 @@
 # EasyImaging
 
-If you are using the [Paperclip Gem](http://github.com/thoughtbot/paperclip) to store your files but would also like to be able to run manipulate the images in your app, then this is the easiest Gem to get you started.
+If you are using the [Paperclip Gem](http://github.com/thoughtbot/paperclip) to store your files but would also like to be manipulate the images in your app, then this is the easiest Gem to get you started.
 
 You can use any of the [ImageMagick](http://www.imagemagick.org/script/command-line-options.php) (or even Graphicsmagick) methods.
 
@@ -56,10 +56,10 @@ Any model instance with a Paperclip image attached can now run any of [ImageMagi
 
 You have the option of applying manipulation to all the instance's style keys, or to all style keys but the original. To apply to all including the original, add a "bang" to the end of the method.
 
-Using the ImageMagick methods are easy, the naming conventin follows a simple pattern.
+Using the ImageMagick methods are easy, the naming convention follows a simple pattern.
 
 ```ruby
-EasyImaging.#{method}_image(*args)
+EasyImaging.#{method}_image(@user.avatar, *args)
 ```
 
 ##### Apply to all styles but the original:
